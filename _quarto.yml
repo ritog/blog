@@ -12,7 +12,7 @@ website:
         href: https://twitter.com/AllesistKode
 format:
   html:
-    theme: cosmo
+    theme: quartz
     css: styles.css
 
 execute:
