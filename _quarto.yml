@@ -7,9 +7,9 @@ website:
     right:
       - about.qmd
       - icon: github
-        href: https://github.com/
+        href: https://github.com/ghosh-r
       - icon: twitter
-        href: https://twitter.com
+        href: https://twitter.com/AllesistKode
 format:
   html:
     theme: cosmo
