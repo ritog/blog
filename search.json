@@ -1,5 +1,26 @@
 [
   {
+    "objectID": "posts/non-linear-dynamics-trajectories-with-python.html",
+    "href": "posts/non-linear-dynamics-trajectories-with-python.html",
+    "title": "blog",
+    "section": "",
+    "text": "title: “Non-Linear Dynamics Trajectories with Python” format: html: code-fold: true jupyter: python3 ___"
+  },
+  {
+    "objectID": "posts/non-linear-dynamics-trajectories-with-python.html#r-2",
+    "href": "posts/non-linear-dynamics-trajectories-with-python.html#r-2",
+    "title": "blog",
+    "section": "\\[r = 2\\]",
+    "text": "\\[r = 2\\]\n\nx_n = logistic_function_trajectory(parameter=2.0, initial_value=0.2, num_iter=200)\nx_n_hat = logistic_function_trajectory(parameter=2.0, initial_value=0.200001, num_iter=200)\n\n\nys = abs(np.subtract(x_n, x_n_hat))\nxs = np.linspace(1, 200, 200)\n\n\nplot_trajectory(xs=xs, ys=ys, x_label='$n$', y_label='$ x_n - \\hat{x_n} $', title='Trajectory for $r = 2$')"
+  },
+  {
+    "objectID": "posts/non-linear-dynamics-trajectories-with-python.html#plotting-x_n---hatx_n-vs.-n-for-r3.4",
+    "href": "posts/non-linear-dynamics-trajectories-with-python.html#plotting-x_n---hatx_n-vs.-n-for-r3.4",
+    "title": "blog",
+    "section": "Plotting \\(x_n - \\hat{x_n}\\) vs. \\(n\\) for \\(r=3.4\\)",
+    "text": "Plotting \\(x_n - \\hat{x_n}\\) vs. \\(n\\) for \\(r=3.4\\)\n\nx_n = logistic_function_trajectory(parameter=3.4, initial_value=0.2, num_iter=200)\nx_n_hat = logistic_function_trajectory(parameter=3.4, initial_value=0.200001, num_iter=200)\n\nys = abs(np.subtract(x_n, x_n_hat))\nxs = np.linspace(1, 200, 200)\n\nplot_trajectory(xs=xs, ys=ys, x_label='$n$', y_label='$ x_n - \\hat{x_n} $', title='Trajectory for $r = 3.4$')\n\n\n\n\nWe can thus plot the trajectories of the Logistic Map with Python and relevant libraries."
+  },
+  {
     "objectID": "posts/welcome/index.html",
     "href": "posts/welcome/index.html",
     "title": "Welcome To My Blog",
@@ -18,7 +39,7 @@
     "href": "index.html",
     "title": "Blogs by Rito Ghosh",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nPost With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nNov 4, 2022\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nNov 1, 2022\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\nNon-Linear Dynamics Trajectories with Python\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nPost With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nNov 4, 2022\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nNov 1, 2022\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",

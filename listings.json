@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/non-linear-dynamics-trajectories-with-python.html",
       "/posts/post-with-code/index.html",
       "/posts/welcome/index.html"
     ]

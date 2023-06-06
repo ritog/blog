@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://ghosh-r.github.io/blog/posts/non-linear-dynamics-trajectories-with-python.html</loc>
+    <lastmod>2023-06-06T20:35:46.169Z</lastmod>
+  </url>
+  <url>
     <loc>https://ghosh-r.github.io/blog/posts/welcome/index.html</loc>
-    <lastmod>2023-06-06T15:33:21.402Z</lastmod>
+    <lastmod>2023-06-06T20:35:46.361Z</lastmod>
   </url>
   <url>
     <loc>https://ghosh-r.github.io/blog/posts/post-with-code/index.html</loc>
-    <lastmod>2023-06-06T15:33:21.594Z</lastmod>
+    <lastmod>2023-06-06T20:35:46.553Z</lastmod>
   </url>
   <url>
     <loc>https://ghosh-r.github.io/blog/index.html</loc>
-    <lastmod>2023-06-06T15:33:21.806Z</lastmod>
+    <lastmod>2023-06-06T20:35:46.769Z</lastmod>
   </url>
   <url>
     <loc>https://ghosh-r.github.io/blog/about.html</loc>
-    <lastmod>2023-06-06T15:33:21.982Z</lastmod>
+    <lastmod>2023-06-06T20:35:46.941Z</lastmod>
   </url>
 </urlset>
