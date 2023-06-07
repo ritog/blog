@@ -15,7 +15,7 @@ website:
         href: index.xml
 format:
   html:
-    theme: quartz
+    theme: solar
     css: styles.css
 
 execute:
