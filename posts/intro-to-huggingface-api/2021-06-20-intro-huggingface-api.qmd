@@ -8,6 +8,8 @@ comments: false
 image: "2021-06-20-intro-huggingface-api-0.jpg"
 ---
 
+![](2021-06-20-intro-huggingface-api-0.jpg)
+
 ### Introduction
 
 Natural Language Processing is a fast-advancing field. And it is also one of the fields that require a huge amount of computational resources to make important progress. And although breakthroughs are openly announced, and papers are released in free-to-access repositories such as [arXiv](https://arxiv.org/), Open Review, Papers with Code, etc., and despite (sometimes) having the code freely available on GitHub, using those language models is not something widely accessible and easy.

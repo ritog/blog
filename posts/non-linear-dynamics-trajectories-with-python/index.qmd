@@ -1,17 +1,16 @@
-___
-layout: post
-title: Non-Linear Dynamics Trajectories with Python
+---
+title: "Non-Linear Dynamics Trajectories with Python"
 author: "Ritobrata Ghosh"
 date: "2023-04-27"
 categories: [deep-learning, physics, chaos-theory, ai]
 image: "output_16_0.png"
-___
+---
 
 # Non-Linear Dynamics Trajectories with Python
 
 by Ritobrata Ghosh
 
-# Introduction
+### Introduction
 
 In this Notebook, trajectories of the Logistic Map \[1\] is plotted with Python.
 
@@ -82,11 +81,11 @@ plot_trajectory(xs=xs, ys=ys, x_label='$n$', y_label='$x_n$', title='Trajectory'
 
 
     
-![png](output_10_0.png)
+![](output_10_0.png)
     
 
 
-## $$r = 2$$
+### $$r = 2$$
 
 
 ```python
@@ -107,11 +106,11 @@ plot_trajectory(xs=xs, ys=ys, x_label='$n$', y_label='$ x_n - \hat{x_n} $', titl
 
 
     
-![png](output_14_0.png)
+![](output_14_0.png)
     
 
 
-## Plotting $x_n - \hat{x_n}$ vs. $n$ for $r=3.4$
+### Plotting $x_n - \hat{x_n}$ vs. $n$ for $r=3.4$
 
 
 ```python
@@ -126,7 +125,7 @@ plot_trajectory(xs=xs, ys=ys, x_label='$n$', y_label='$ x_n - \hat{x_n} $', titl
 
 
     
-![png](output_16_0.png)
+![](output_16_0.png)
     
 
 
