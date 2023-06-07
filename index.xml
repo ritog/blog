@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Blogs by Rito Ghosh</title>
+<link>https://ghosh-r.github.io/blog/index.html</link>
+<atom:link href="https://ghosh-r.github.io/blog/index.xml" rel="self" type="application/rss+xml"/>
+<description></description>
+<generator>quarto-1.2.253</generator>
+<lastBuildDate>Wed, 26 Apr 2023 18:30:00 GMT</lastBuildDate>
+<item>
+  <title>Non-Linear Dynamics Trajectories with Python</title>
+  <dc:creator>Ritobrata Ghosh</dc:creator>
+  <link>https://ghosh-r.github.io/blog/posts/non-linear-dynamics-trajectories-with-python/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="non-linear-dynamics-trajectories-with-python" class="level1">
+<h1>Non-Linear Dynamics Trajectories with Python</h1>
+<p>by Ritobrata Ghosh</p>
+<section id="introduction" class="level3">
+<h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
+<p>In this Notebook, trajectories of the Logistic Map [1] is plotted with Python.</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;">import</span> numpy <span class="im" style="color: #00769E;">as</span> np</span>
+<span id="cb1-2"><span class="im" style="color: #00769E;">import</span> matplotlib.pyplot <span class="im" style="color: #00769E;">as</span> plt</span></code></pre></div>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="kw" style="color: #003B4F;">def</span> logistic_function(parameter: <span class="bu" style="color: null;">float</span>, initial_value: <span class="bu" style="color: null;">float</span>) <span class="op" style="color: #5E5E5E;">-&gt;</span> <span class="bu" style="color: null;">float</span>:</span>
+<span id="cb2-2">    <span class="cf" style="color: #003B4F;">return</span> parameter <span class="op" style="color: #5E5E5E;">*</span> initial_value <span class="op" style="color: #5E5E5E;">*</span> (<span class="dv" style="color: #AD0000;">1</span> <span class="op" style="color: #5E5E5E;">-</span> initial_value)</span></code></pre></div>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="kw" style="color: #003B4F;">def</span> logistic_function_trajectory(parameter: <span class="bu" style="color: null;">float</span>,</span>
+<span id="cb3-2">                                 initial_value: <span class="bu" style="color: null;">float</span>,</span>
+<span id="cb3-3">                                 num_iter: <span class="bu" style="color: null;">int</span>) <span class="op" style="color: #5E5E5E;">-&gt;</span> np.array:</span>
+<span id="cb3-4">    trajectory <span class="op" style="color: #5E5E5E;">=</span> np.zeros(num_iter)</span>
+<span id="cb3-5">    trajectory[<span class="dv" style="color: #AD0000;">0</span>] <span class="op" style="color: #5E5E5E;">=</span> initial_value</span>
+<span id="cb3-6">    <span class="cf" style="color: #003B4F;">for</span> i <span class="kw" style="color: #003B4F;">in</span> <span class="bu" style="color: null;">range</span>(num_iter<span class="op" style="color: #5E5E5E;">-</span><span class="dv" style="color: #AD0000;">1</span>):</span>
+<span id="cb3-7">        trajectory[i<span class="op" style="color: #5E5E5E;">+</span><span class="dv" style="color: #AD0000;">1</span>] <span class="op" style="color: #5E5E5E;">=</span> logistic_function(parameter, initial_value)</span>
+<span id="cb3-8">        initial_value <span class="op" style="color: #5E5E5E;">=</span> trajectory[i<span class="op" style="color: #5E5E5E;">+</span><span class="dv" style="color: #AD0000;">1</span>]</span>
+<span id="cb3-9">    <span class="cf" style="color: #003B4F;">return</span> np.array(trajectory)</span></code></pre></div>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1">logistic_function_trajectory(parameter<span class="op" style="color: #5E5E5E;">=</span><span class="fl" style="color: #AD0000;">2.2</span>, initial_value<span class="op" style="color: #5E5E5E;">=</span><span class="fl" style="color: #AD0000;">0.8</span>, num_iter<span class="op" style="color: #5E5E5E;">=</span><span class="dv" style="color: #AD0000;">10</span>)</span></code></pre></div>
+<pre><code>array([0.8       , 0.352     , 0.5018112 , 0.54999278, 0.54450159,
+       0.54564314, 0.54541675, 0.5454621 , 0.54545303, 0.54545485])</code></pre>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1">xs <span class="op" style="color: #5E5E5E;">=</span> np.linspace(<span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">200</span>, <span class="dv" style="color: #AD0000;">200</span>)</span>
+<span id="cb6-2">ys <span class="op" style="color: #5E5E5E;">=</span> logistic_function_trajectory(parameter<span class="op" style="color: #5E5E5E;">=</span><span class="fl" style="color: #AD0000;">2.2</span>, initial_value<span class="op" style="color: #5E5E5E;">=</span><span class="fl" style="color: #AD0000;">0.8</span>, num_iter<span class="op" style="color: #5E5E5E;">=</span><span class="dv" style="color: #AD0000;">200</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="kw" style="color: #003B4F;">def</span> plot_trajectory(xs, ys, x_label, y_label, title):</span>
+<span id="cb7-2">    plt.figure(figsize<span class="op" style="color: #5E5E5E;">=</span>(<span class="dv" style="color: #AD0000;">20</span>,<span class="dv" style="color: #AD0000;">10</span>))</span>
+<span id="cb7-3">    plt.scatter(xs, ys, marker<span class="op" style="color: #5E5E5E;">=</span><span class="st" style="color: #20794D;">'o'</span>, edgecolor<span class="op" style="color: #5E5E5E;">=</span><span class="st" style="color: #20794D;">'black'</span>, c<span class="op" style="color: #5E5E5E;">=</span>point_colors <span class="op" style="color: #5E5E5E;">*</span> <span class="dv" style="color: #AD0000;">50</span>)<span class="op" style="color: #5E5E5E;">;</span></span>
+<span id="cb7-4">    plt.xlabel(x_label)<span class="op" style="color: #5E5E5E;">;</span></span>
+<span id="cb7-5">    plt.ylabel(y_label)<span class="op" style="color: #5E5E5E;">;</span></span>
+<span id="cb7-6">    plt.title(title)<span class="op" style="color: #5E5E5E;">;</span></span>
+<span id="cb7-7">    plt.grid()<span class="op" style="color: #5E5E5E;">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1">point_colors <span class="op" style="color: #5E5E5E;">=</span> [<span class="st" style="color: #20794D;">'cyan'</span>, <span class="st" style="color: #20794D;">'magenta'</span>, <span class="st" style="color: #20794D;">'yellow'</span>, <span class="st" style="color: #20794D;">'black'</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1">plot_trajectory(xs<span class="op" style="color: #5E5E5E;">=</span>xs, ys<span class="op" style="color: #5E5E5E;">=</span>ys, x_label<span class="op" style="color: #5E5E5E;">=</span><span class="st" style="color: #20794D;">'$n$'</span>, y_label<span class="op" style="color: #5E5E5E;">=</span><span class="st" style="color: #20794D;">'$x_n$'</span>, title<span class="op" style="color: #5E5E5E;">=</span><span class="st" style="color: #20794D;">'Trajectory'</span>)</span></code></pre></div>
+<p><img src="https://ghosh-r.github.io/blog/posts/non-linear-dynamics-trajectories-with-python/output_10_0.png" class="img-fluid"></p>
+</section>
+<section id="r-2" class="level3">
+<h3 class="anchored" data-anchor-id="r-2"><img src="https://latex.codecogs.com/png.latex?r%20=%202"></h3>
+<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1">x_n <span class="op" style="color: #5E5E5E;">=</span> logistic_function_trajectory(parameter<span class="op" style="color: #5E5E5E;">=</span><span class="fl" style="color: #AD0000;">2.0</span>, initial_value<span class="op" style="color: #5E5E5E;">=</span><span class="fl" style="color: #AD0000;">0.2</span>, num_iter<span class="op" style="color: #5E5E5E;">=</span><span class="dv" style="color: #AD0000;">200</span>)</span>
+<span id="cb10-2">x_n_hat <span class="op" style="color: #5E5E5E;">=</span> logistic_function_trajectory(parameter<span class="op" style="color: #5E5E5E;">=</span><span class="fl" style="color: #AD0000;">2.0</span>, initial_value<span class="op" style="color: #5E5E5E;">=</span><span class="fl" style="color: #AD0000;">0.200001</span>, num_iter<span class="op" style="color: #5E5E5E;">=</span><span class="dv" style="color: #AD0000;">200</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1">ys <span class="op" style="color: #5E5E5E;">=</span> <span class="bu" style="color: null;">abs</span>(np.subtract(x_n, x_n_hat))</span>
+<span id="cb11-2">xs <span class="op" style="color: #5E5E5E;">=</span> np.linspace(<span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">200</span>, <span class="dv" style="color: #AD0000;">200</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1">plot_trajectory(xs<span class="op" style="color: #5E5E5E;">=</span>xs, ys<span class="op" style="color: #5E5E5E;">=</span>ys, x_label<span class="op" style="color: #5E5E5E;">=</span><span class="st" style="color: #20794D;">'$n$'</span>, y_label<span class="op" style="color: #5E5E5E;">=</span><span class="st" style="color: #20794D;">'$ x_n - \hat</span><span class="sc" style="color: #5E5E5E;">{x_n}</span><span class="st" style="color: #20794D;"> $'</span>, title<span class="op" style="color: #5E5E5E;">=</span><span class="st" style="color: #20794D;">'Trajectory for $r = 2$'</span>)</span></code></pre></div>
+<p><img src="https://ghosh-r.github.io/blog/posts/non-linear-dynamics-trajectories-with-python/output_14_0.png" class="img-fluid"></p>
+</section>
+<section id="plotting-x_n---hatx_n-vs.-n-for-r3.4" class="level3">
+<h3 class="anchored" data-anchor-id="plotting-x_n---hatx_n-vs.-n-for-r3.4">Plotting <img src="https://latex.codecogs.com/png.latex?x_n%20-%20%5Chat%7Bx_n%7D"> vs.&nbsp;<img src="https://latex.codecogs.com/png.latex?n"> for <img src="https://latex.codecogs.com/png.latex?r=3.4"></h3>
+<div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1">x_n <span class="op" style="color: #5E5E5E;">=</span> logistic_function_trajectory(parameter<span class="op" style="color: #5E5E5E;">=</span><span class="fl" style="color: #AD0000;">3.4</span>, initial_value<span class="op" style="color: #5E5E5E;">=</span><span class="fl" style="color: #AD0000;">0.2</span>, num_iter<span class="op" style="color: #5E5E5E;">=</span><span class="dv" style="color: #AD0000;">200</span>)</span>
+<span id="cb13-2">x_n_hat <span class="op" style="color: #5E5E5E;">=</span> logistic_function_trajectory(parameter<span class="op" style="color: #5E5E5E;">=</span><span class="fl" style="color: #AD0000;">3.4</span>, initial_value<span class="op" style="color: #5E5E5E;">=</span><span class="fl" style="color: #AD0000;">0.200001</span>, num_iter<span class="op" style="color: #5E5E5E;">=</span><span class="dv" style="color: #AD0000;">200</span>)</span>
+<span id="cb13-3"></span>
+<span id="cb13-4">ys <span class="op" style="color: #5E5E5E;">=</span> <span class="bu" style="color: null;">abs</span>(np.subtract(x_n, x_n_hat))</span>
+<span id="cb13-5">xs <span class="op" style="color: #5E5E5E;">=</span> np.linspace(<span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">200</span>, <span class="dv" style="color: #AD0000;">200</span>)</span>
+<span id="cb13-6"></span>
+<span id="cb13-7">plot_trajectory(xs<span class="op" style="color: #5E5E5E;">=</span>xs, ys<span class="op" style="color: #5E5E5E;">=</span>ys, x_label<span class="op" style="color: #5E5E5E;">=</span><span class="st" style="color: #20794D;">'$n$'</span>, y_label<span class="op" style="color: #5E5E5E;">=</span><span class="st" style="color: #20794D;">'$ x_n - \hat</span><span class="sc" style="color: #5E5E5E;">{x_n}</span><span class="st" style="color: #20794D;"> $'</span>, title<span class="op" style="color: #5E5E5E;">=</span><span class="st" style="color: #20794D;">'Trajectory for $r = 3.4$'</span>)</span></code></pre></div>
+<p><img src="https://ghosh-r.github.io/blog/posts/non-linear-dynamics-trajectories-with-python/output_16_0.png" class="img-fluid"></p>
+<p>We can thus plot the trajectories of the Logistic Map with Python and relevant libraries.</p>
+</section>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
+<ol type="1">
+<li>https://en.wikipedia.org/wiki/Logistic_map</li>
+<li>Bradley, Liz: <em>Nonlinear Dynamics: Mathematical and Computational Approaches</em> via Complexity Explorer, Santa Fe Institute</li>
+</ol>
+<p>Cite this Notebook:</p>
+<pre><code>@ONLINE {,
+    author = "Ritobrata Ghosh",
+    title  = "Non Linear Dynamics Trajectories with Python",
+    month  = "apr",
+    year   = "2023",
+    url    = "https://www.kaggle.com/truthr/non-linear-dynamics-trajectories-with-python"
+}</code></pre>
+
+
+</section>
+
+ ]]></description>
+  <category>deep-learning</category>
+  <category>physics</category>
+  <category>chaos-theory</category>
+  <category>ai</category>
+  <guid>https://ghosh-r.github.io/blog/posts/non-linear-dynamics-trajectories-with-python/index.html</guid>
+  <pubDate>Wed, 26 Apr 2023 18:30:00 GMT</pubDate>
+  <media:content url="https://ghosh-r.github.io/blog/posts/non-linear-dynamics-trajectories-with-python/output_16_0.png" medium="image" type="image/png" height="75" width="144"/>
+</item>
+<item>
+  <title>Post With Code</title>
+  <dc:creator>Harlow Malloc</dc:creator>
+  <link>https://ghosh-r.github.io/blog/posts/post-with-code/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This is a post with executable code.</p>
+
+
+
+ ]]></description>
+  <category>news</category>
+  <category>code</category>
+  <category>analysis</category>
+  <guid>https://ghosh-r.github.io/blog/posts/post-with-code/index.html</guid>
+  <pubDate>Thu, 03 Nov 2022 18:30:00 GMT</pubDate>
+  <media:content url="https://ghosh-r.github.io/blog/posts/post-with-code/image.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Welcome To My Blog</title>
+  <dc:creator>Tristan O&#39;Malley</dc:creator>
+  <link>https://ghosh-r.github.io/blog/posts/welcome/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This is the first post in a Quarto blog. Welcome!</p>
+<p><img src="https://ghosh-r.github.io/blog/posts/welcome/thumbnail.jpg" class="img-fluid"></p>
+<p>Since this post doesn’t specify an explicit <code>image</code>, the first image in the post will be used in the listing page of posts.</p>
+
+
+
+ ]]></description>
+  <category>news</category>
+  <guid>https://ghosh-r.github.io/blog/posts/welcome/index.html</guid>
+  <pubDate>Mon, 31 Oct 2022 18:30:00 GMT</pubDate>
+  <media:content url="https://ghosh-r.github.io/blog/posts/welcome/thumbnail.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>A Gentle Introduction to the Hugging Face API</title>
+  <link>https://ghosh-r.github.io/blog/posts/intro-to-huggingface-api/2021-06-20-intro-huggingface-api.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><img src="https://ghosh-r.github.io/blog/posts/intro-to-huggingface-api/2021-06-20-intro-huggingface-api-0.jpg" class="img-fluid"></p>
+<section id="introduction" class="level3">
+<h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
+<p>Natural Language Processing is a fast-advancing field. And it is also one of the fields that require a huge amount of computational resources to make important progress. And although breakthroughs are openly announced, and papers are released in free-to-access repositories such as <a href="https://arxiv.org/">arXiv</a>, Open Review, Papers with Code, etc., and despite (sometimes) having the code freely available on GitHub, using those language models is not something widely accessible and easy.</p>
+<p>Let me provide more context. BERT is a state-of-the-art encoder language model. It takes days to train the model from the ground up even when using very powerful GPUs that only a few entities have access to. In 2019, NVIDIA <a href="https://nvidianews.nvidia.com/news/nvidia-achieves-breakthroughs-in-language-understandingto-enable-real-time-conversational-ai">used</a> 1472 NVIDIA V100 GPUs to train BERT from scratch in 53 minutes. Yes, 1,472!</p>
+<p>One estimate <a href="https://twitter.com/eturner303/status/1266264358771757057?s=20">puts</a> the cost of training GPT-3, a 175 billion parameter model, for a single training run at $12 Million USD.</p>
+<p>And such language models are released every now and then. How do you use these powerful language models for your task?</p>
+<p>Here Hugging Face comes to the scene. They aim to solve this problem by providing pre-trained models, and simple API so that you can use them, fine-tune them, and use the API in your applications.</p>
+<p>In this article, my goal is to introduce the Hugging Face <code>pipeline</code> API to accomplish very interesting tasks by utilizing powerful pre-trained models present in the models hub of Hugging Face.</p>
+<p>To follow through this article, you need not have any prior knowledge of Natural Language Processing. I, however, assume minor prior experience in writing Python code.</p>
+<hr>
+<p>In this article, I will go over, describe, and provide examples for the following tasks using Hugging Face <code>pipeline</code>-</p>
+<ul>
+<li>Sentiment Analysis</li>
+<li>Zero-Shot Classification</li>
+<li>Text Generation</li>
+<li>Mask-Filling</li>
+<li>Named Entity Recognition</li>
+<li>Question Answering</li>
+<li>Summarization</li>
+<li>Translation</li>
+</ul>
+<hr>
+</section>
+<section id="installing-and-importing" class="level3">
+<h3 class="anchored" data-anchor-id="installing-and-importing">Installing and Importing</h3>
+<pre><code>! pip install transformers[sentencepiece] &gt; /dev/null</code></pre>
+<p>If you have not seen a <code>pip</code> install with a square bracket in it before, don’t worry. It means that you are installing the <code>transformers</code> package with extra support added for the <code>sentencepiece</code> package. You can find out more about square parentheses installs in <code>pip</code> <a href="https://stackoverflow.com/questions/46775346/what-do-square-brackets-mean-in-pip-install">here</a>.</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im" style="color: #00769E;">from</span> transformers <span class="im" style="color: #00769E;">import</span> pipeline</span></code></pre></div>
+<p>We will use the utilities available in the <code>pipeline</code> namespace in the <code>transformers</code> library.</p>
+<hr>
+</section>
+<section id="sentiment-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="sentiment-analysis">Sentiment Analysis</h3>
+<p>Before I begin going through the specific <code>pipeline</code>s, let me tell you something beforehand that you will find yourself. Hugging Face API is very intuitive. When you want to use a <code>pipeline</code>, you have to instantiate an object, then you pass data to that object to get result. Very simple! You are soon to see what I mean.</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb3-1">classifier_sentiment <span class="op" style="color: #5E5E5E;">=</span> pipeline(<span class="st" style="color: #20794D;">"sentiment-analysis"</span>)</span></code></pre></div>
+<p>That’s it. You call the <code>pipeline()</code> method with the task you want to accomplish as an argument. And you assign a name to it. You are done now. You can now begin to use the object as a function to achieve what you want. Let’s see an example-</p>
+<iframe src="https://www.kaggle.com/embed/truthr/a-gentle-introduction-to-the-hugging-face-api?cellId=6&amp;cellIds=15&amp;kernelSessionId=66118660" height="150" style="margin: 0 auto; width: 100%; max-width: 950px;" frameborder="0" scrolling="auto" title="A Gentle Introduction to the Hugging Face API">
+</iframe>
+<p>See, it returns a dictionary contained in a list that has two items, <code>label</code> and <code>score</code>. The <code>label</code> part tells us its prediction, and the <code>score</code> tells us its confidence score.</p>
+<blockquote class="blockquote">
+<p><em>As an aside, I think they are structured this way because this structure is easily compatible with <code>.json</code> and similar filetypes which are very common in APIs.</em></p>
+</blockquote>
+<p>Let’s see another example.</p>
+<iframe src="https://www.kaggle.com/embed/truthr/a-gentle-introduction-to-the-hugging-face-api?cellId=6&amp;cellIds=17&amp;kernelSessionId=66118660" height="150" style="margin: 0 auto; width: 100%; max-width: 950px;" frameborder="0" scrolling="auto" title="A Gentle Introduction to the Hugging Face API">
+</iframe>
+<p>See, how the classifier is aware of my emotion about pineapple pizzas? 🙃</p>
+<hr>
+</section>
+<section id="zero-shot-classification" class="level3">
+<h3 class="anchored" data-anchor-id="zero-shot-classification">Zero-Shot Classification</h3>
+<p>When you want to classify something using Deep Learning, in many cases you need to train it with labeled examples. This approach is known as Supervised Learning. Even when leveraging transfer learning, you need to train your model with quite a few labeled examples in the domain of your choice. Zero-shot classification is different than that. In this, you use a pre-trained model to classify a given string and some labels of your choice. The model returns you the confidence score for each model.</p>
+<p>Let me show you how this works. First, you instantiate an object and assign it a name just like you did in the case of the Sentiment Analysis pipeline.</p>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb4-1">classifier_zero_shot <span class="op" style="color: #5E5E5E;">=</span> pipeline(<span class="st" style="color: #20794D;">"zero-shot-classification"</span>)</span></code></pre></div>
+<p>Then you pass a string, along with the labels of your choice to test how well they correspond to your sentence.</p>
+<iframe src="https://www.kaggle.com/embed/truthr/a-gentle-introduction-to-the-hugging-face-api?cellId=6&amp;cellIds=25&amp;kernelSessionId=66118660" height="260" style="margin: 0 auto; width: 100%; max-width: 950px;" frameborder="0" scrolling="auto" title="A Gentle Introduction to the Hugging Face API">
+</iframe>
+<p>See, the given sentence is about a profession, and the model tells you that. And it knows that it is much more related to education than politics.</p>
+<p>Essentially, when you are doing Zero-Shot Classification, you are supplying a string to the <code>pipeline</code>, and also labels. The pipeline returns how accurate <strong>those labels are</strong>.</p>
+<hr>
+</section>
+<section id="text-generation" class="level3">
+<h3 class="anchored" data-anchor-id="text-generation">Text Generation</h3>
+<p>Before I heard about Deep Learning, I heard about Natural Language Processing, because I heard that you can generate text with it! This is the most exciting part of NLP to me, personally.</p>
+<p>As the name suggests, this <code>pipeline</code> lets you generate text. It just needs you to supply a prompt, a text that will determine what the generated text will be. Let me show you how.</p>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb5-1">generator <span class="op" style="color: #5E5E5E;">=</span> pipeline(<span class="st" style="color: #20794D;">"text-generation"</span>)</span></code></pre></div>
+<iframe src="https://www.kaggle.com/embed/truthr/a-gentle-introduction-to-the-hugging-face-api?cellId=6&amp;cellIds=30&amp;kernelSessionId=66118660" height="230" style="margin: 0 auto; width: 100%; max-width: 950px;" frameborder="0" scrolling="auto" title="A Gentle Introduction to the Hugging Face API">
+</iframe>
+<p>See what I mean! Even with zero training, it can create logically coherent text that is even interesting to read. Robots will take over writers soon 🤖!</p>
+<p>You can control the maximum length of the output of the <code>pipeline</code>, and even ask for multiple possible outputs, like so-</p>
+<iframe src="https://www.kaggle.com/embed/truthr/a-gentle-introduction-to-the-hugging-face-api?cellIds=34&amp;kernelSessionId=66128979" height="320" style="margin: 0 auto; width: 100%; max-width: 950px;" frameborder="0" scrolling="auto" title="A Gentle Introduction to the Hugging Face API">
+</iframe>
+<blockquote class="blockquote">
+<p><em>Whoa, it’s poetic!</em></p>
+</blockquote>
+<p>We can accomplish more interesting things with transfer learning. But that is a story for another day.</p>
+<hr>
+</section>
+<section id="mask-filling" class="level3">
+<h3 class="anchored" data-anchor-id="mask-filling">Mask Filling</h3>
+<p>In this pipeline, if there is a word that you hide and supply the string with the hidden word, the <code>pipeline</code> will predict that word. This is like magic!</p>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb6-1">unmasker <span class="op" style="color: #5E5E5E;">=</span> pipeline(<span class="st" style="color: #20794D;">"fill-mask"</span>)</span></code></pre></div>
+<p>You pass the sentence with the masked word, and it will predict it. You can choose the number of predictions you want to see. You just have to pass a value to the <code>top_k</code> parameter.</p>
+<iframe src="https://www.kaggle.com/embed/truthr/a-gentle-introduction-to-the-hugging-face-api?cellIds=41&amp;kernelSessionId=66128979" height="330" style="margin: 0 auto; width: 100%; max-width: 950px;" frameborder="0" scrolling="auto" title="A Gentle Introduction to the Hugging Face API">
+</iframe>
+<iframe src="https://www.kaggle.com/embed/truthr/a-gentle-introduction-to-the-hugging-face-api?cellId=6&amp;cellIds=40&amp;kernelSessionId=66118660" height="320" style="margin: 0 auto; width: 100%; max-width: 950px;" frameborder="0" scrolling="auto" title="A Gentle Introduction to the Hugging Face API">
+</iframe>
+<p>It can predict the words quite well. Just remember to mask the word using <code>&lt;mask&gt;</code>.</p>
+<hr>
+</section>
+<section id="named-entity-recognition" class="level3">
+<h3 class="anchored" data-anchor-id="named-entity-recognition">Named Entity Recognition</h3>
+<p>This <code>pipeline</code> recognizes the proper nouns in your sentence. And it also classifies them. Let’s see an example.</p>
+<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb7-1">ner <span class="op" style="color: #5E5E5E;">=</span> pipeline(<span class="st" style="color: #20794D;">"ner"</span>, grouped_entities<span class="op" style="color: #5E5E5E;">=</span><span class="va" style="color: #111111;">True</span>)</span></code></pre></div>
+<p>The <code>grouped_entities</code> parameter just ensures that the <code>pipeline</code> can recognize the names that have more than one word, like, you know, Chocolate Factory.</p>
+<iframe src="https://www.kaggle.com/embed/truthr/a-gentle-introduction-to-the-hugging-face-api?cellId=6&amp;cellIds=46&amp;kernelSessionId=66118660" height="400" style="margin: 0 auto; width: 100%; max-width: 950px;" frameborder="0" scrolling="auto" title="A Gentle Introduction to the Hugging Face API">
+</iframe>
+<p>See how it recognizes a person, his profession, and location on its own, and also labels them as “PER”, “ORG”, and “LOC” (meaning location), respectively.</p>
+<hr>
+</section>
+<section id="question-answering" class="level3">
+<h3 class="anchored" data-anchor-id="question-answering">Question Answering</h3>
+<p>This pipeline provides you with an answer to a question you ask from the context that you provide.</p>
+<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb8-1">question_answerer <span class="op" style="color: #5E5E5E;">=</span> pipeline(<span class="st" style="color: #20794D;">"question-answering"</span>)</span></code></pre></div>
+<iframe src="https://www.kaggle.com/embed/truthr/a-gentle-introduction-to-the-hugging-face-api?cellId=6&amp;cellIds=51&amp;kernelSessionId=66118660" height="210" style="margin: 0 auto; width: 100%; max-width: 950px;" frameborder="0" scrolling="auto" title="A Gentle Introduction to the Hugging Face API">
+</iframe>
+<p>It can answer multiple questions from the same prompt.</p>
+<iframe src="https://www.kaggle.com/embed/truthr/a-gentle-introduction-to-the-hugging-face-api?cellId=6&amp;cellIds=53&amp;kernelSessionId=66118660" height="210" style="margin: 0 auto; width: 100%; max-width: 950px;" frameborder="0" scrolling="auto" title="A Gentle Introduction to the Hugging Face API">
+</iframe>
+<hr>
+</section>
+<section id="summarization" class="level3">
+<h3 class="anchored" data-anchor-id="summarization">Summarization</h3>
+<p>This is one of the most practical tasks that has existed for a long time. Deep Learning really changes the landscape of the task.</p>
+<p>Let’s see it in action.</p>
+<div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb9-1">summarizer <span class="op" style="color: #5E5E5E;">=</span> pipeline(<span class="st" style="color: #20794D;">"summarization"</span>)</span></code></pre></div>
+<p>Let’s summarize a piece of text from a <a href="https://blog.royalsloth.eu/posts/i-wish-i-could-write-this-well/">blog post</a> I recently read.</p>
+<iframe src="https://www.kaggle.com/embed/truthr/a-gentle-introduction-to-the-hugging-face-api?cellId=6&amp;cellIds=59&amp;kernelSessionId=66118660" height="650" style="margin: 0 auto; width: 100%; max-width: 950px;" frameborder="0" scrolling="auto" title="A Gentle Introduction to the Hugging Face API">
+</iframe>
+<p>Now, that’s something! The efficacy of the summarizer really shocked me. It does this task so well.</p>
+<hr>
+</section>
+<section id="translation" class="level3">
+<h3 class="anchored" data-anchor-id="translation">Translation</h3>
+<p>The translation <code>pipeline</code> translates a piece of text from one language to another. It also lets you choose the language model of your choice.</p>
+<p>First, let’s translate a text from English to German. I will use the <a href="https://huggingface.co/Helsinki-NLP/opus-mt-en-de"><code>Helsinki-NLP/opus-mt-en-de</code></a> model for this task.</p>
+<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb10-1">translator_de <span class="op" style="color: #5E5E5E;">=</span> pipeline(<span class="st" style="color: #20794D;">"translation"</span>, model<span class="op" style="color: #5E5E5E;">=</span><span class="st" style="color: #20794D;">"Helsinki-NLP/opus-mt-en-de"</span>)</span></code></pre></div>
+<iframe src="https://www.kaggle.com/embed/truthr/a-gentle-introduction-to-the-hugging-face-api?cellId=6&amp;cellIds=64&amp;kernelSessionId=66118660" height="165" style="margin: 0 auto; width: 100%; max-width: 950px;" frameborder="0" scrolling="auto" title="A Gentle Introduction to the Hugging Face API">
+</iframe>
+<p>Note that you are not explicitly telling the model about the language of the input language or the output language. A language model is only trained for translating from one language to another. It cannot translate other languages. If you want to translate from German to English, you’d have to use another model from the model hub. You can find all the translation models <a href="https://huggingface.co/models?pipeline_tag=translation">here</a>.</p>
+<p>The cool thing is that Hugging Face is not limited to Romance languages or European languages in general. Let me show you by translating a piece of text from Bengali.</p>
+<div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb11-1">translator_bn <span class="op" style="color: #5E5E5E;">=</span> pipeline(<span class="st" style="color: #20794D;">"translation"</span>, model<span class="op" style="color: #5E5E5E;">=</span><span class="st" style="color: #20794D;">"Helsinki-NLP/opus-mt-bn-en"</span>)</span></code></pre></div>
+<iframe src="https://www.kaggle.com/embed/truthr/a-gentle-introduction-to-the-hugging-face-api?cellId=6&amp;cellIds=68&amp;kernelSessionId=66118660" height="165" style="margin: 0 auto; width: 100%; max-width: 950px;" frameborder="0" scrolling="auto" title="A Gentle Introduction to the Hugging Face API">
+</iframe>
+<blockquote class="blockquote">
+
+</blockquote>
+<hr>
+</section>
+<section id="conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
+<p>I have shown you several pipeline APIs and what they do and how they work.</p>
+<p>Here are the suggested next steps-</p>
+<ul>
+<li><strong>Experiment.</strong> Play with the <code>pipeline</code>s by yourself, try different things with different parameters, run inference on examples of your own, test edge cases, run wild with it. I believe that is the best way to learn.</li>
+<li><strong>Do Projects.</strong> Use the knowledge you gained here in simple projects. We only learn by doing.</li>
+<li><strong>Hugging Face Course.</strong> Hugging Face has recently released a <a href="https://huggingface.co/course/chapter1">free course</a> where they teach you about Transformers and their library ecosystem. It is a good next step.</li>
+<li><strong>Explore.</strong> Explore the Hugging Face <a href="https://huggingface.co/">website</a>, learn more about their APIs, Services, pre-trained models, and many more things it has to offer.</li>
+</ul>
+<hr>
+<p>If you notice any error, mistake, or typo, please feel free to let me know. If something is not clear, please let me know that as well. I will do my best to correct it and will credit you here.</p>
+<p>Let me know if you have any questions at all.</p>
+<hr>
+<p><em>(Originally <a href="https://www.kaggle.com/truthr/a-gentle-introduction-to-the-hugging-face-api">published as a Notebook</a> on Kaggle.)</em></p>
+
+
+</section>
+
+ ]]></description>
+  <category>deep-learning</category>
+  <category>machine-learning</category>
+  <category>data-science</category>
+  <category>ai</category>
+  <category>tutorial</category>
+  <category>nlp</category>
+  <category>kaggle</category>
+  <guid>https://ghosh-r.github.io/blog/posts/intro-to-huggingface-api/2021-06-20-intro-huggingface-api.html</guid>
+  <pubDate>Sat, 19 Jun 2021 18:30:00 GMT</pubDate>
+  <media:content url="https://ghosh-r.github.io/blog/posts/intro-to-huggingface-api/2021-06-20-intro-huggingface-api-0.jpg" medium="image" type="image/jpeg"/>
+</item>
+</channel>
+</rss>

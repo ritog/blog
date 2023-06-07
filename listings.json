@@ -2,9 +2,10 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/non-linear-dynamics-trajectories-with-python.html",
+      "/posts/non-linear-dynamics-trajectories-with-python/index.html",
       "/posts/post-with-code/index.html",
-      "/posts/welcome/index.html"
+      "/posts/welcome/index.html",
+      "/posts/intro-to-huggingface-api/2021-06-20-intro-huggingface-api.html"
     ]
   }
 ]
