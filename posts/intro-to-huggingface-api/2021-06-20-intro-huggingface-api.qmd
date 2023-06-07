@@ -2,9 +2,10 @@
 layout: post
 title: A Gentle Introduction to the Hugging Face API
 subtitle: A Hands-On Tutorial
+date: "2021-06-20"
 categories: [deep-learning, machine-learning, data-science, ai, tutorial, nlp, kaggle]
 comments: false
-cover-img: "2021-06-20-intro-huggingface-api-0.jpg"
+image: "2021-06-20-intro-huggingface-api-0.jpg"
 ---
 
 ### Introduction
