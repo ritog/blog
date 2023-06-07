@@ -1,5 +1,5 @@
 ---
-title: "Blogs by Rito Ghosh"
+title: "Posts"
 listing:
   contents: posts
   sort: "date desc"
