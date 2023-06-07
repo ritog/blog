@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ghosh-r.github.io/blog/posts/intro-to-huggingface-api/2021-06-20-intro-huggingface-api.html</loc>
-    <lastmod>2023-06-07T08:32:07.462Z</lastmod>
+    <loc>https://ghosh-r.github.io/posts/intro-to-huggingface-api/2021-06-20-intro-huggingface-api.html</loc>
+    <lastmod>2023-06-07T08:38:30.872Z</lastmod>
   </url>
   <url>
-    <loc>https://ghosh-r.github.io/blog/posts/nand2tetris_1/2021-06-13-chips-logic-gates-nand2tetris-1.html</loc>
-    <lastmod>2023-06-07T08:32:07.826Z</lastmod>
+    <loc>https://ghosh-r.github.io/posts/nand2tetris_1/2021-06-13-chips-logic-gates-nand2tetris-1.html</loc>
+    <lastmod>2023-06-07T08:38:31.176Z</lastmod>
   </url>
   <url>
-    <loc>https://ghosh-r.github.io/blog/posts/non-linear-dynamics-trajectories-with-python/index.html</loc>
-    <lastmod>2023-06-07T08:32:08.062Z</lastmod>
+    <loc>https://ghosh-r.github.io/posts/non-linear-dynamics-trajectories-with-python/index.html</loc>
+    <lastmod>2023-06-07T08:38:31.396Z</lastmod>
   </url>
   <url>
-    <loc>https://ghosh-r.github.io/blog/index.html</loc>
-    <lastmod>2023-06-07T08:32:08.342Z</lastmod>
+    <loc>https://ghosh-r.github.io/index.html</loc>
+    <lastmod>2023-06-07T08:38:31.636Z</lastmod>
   </url>
   <url>
-    <loc>https://ghosh-r.github.io/blog/about.html</loc>
-    <lastmod>2023-06-07T08:32:08.538Z</lastmod>
+    <loc>https://ghosh-r.github.io/about.html</loc>
+    <lastmod>2023-06-07T08:38:31.820Z</lastmod>
   </url>
 </urlset>
