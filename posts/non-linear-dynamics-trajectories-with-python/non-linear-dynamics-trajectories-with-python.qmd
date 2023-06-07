@@ -1,12 +1,10 @@
 ___
-title: "Non-Linear Dynamics Trajectories with Python"
-format:
-    html:
-        code-fold: true
-jupyter: python3
+layout: post
+title: Non-Linear Dynamics Trajectories with Python
 author: "Ritobrata Ghosh"
 date: "2023-04-27"
 categories: [deep-learning, physics, chaos-theory, ai]
+image: "output_16_0.png"
 ___
 
 # Non-Linear Dynamics Trajectories with Python
