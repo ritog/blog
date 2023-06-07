@@ -2,18 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ghosh-r.github.io/blog/posts/intro-to-huggingface-api/2021-06-20-intro-huggingface-api.html</loc>
-    <lastmod>2023-06-07T08:06:03.290Z</lastmod>
+    <lastmod>2023-06-07T08:14:34.535Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ghosh-r.github.io/blog/posts/nand2tetris_1/2021-06-13-chips-logic-gates-nand2tetris-1.html</loc>
+    <lastmod>2023-06-07T08:14:34.839Z</lastmod>
   </url>
   <url>
     <loc>https://ghosh-r.github.io/blog/posts/non-linear-dynamics-trajectories-with-python/index.html</loc>
-    <lastmod>2023-06-07T08:06:03.522Z</lastmod>
+    <lastmod>2023-06-07T08:14:35.071Z</lastmod>
   </url>
   <url>
     <loc>https://ghosh-r.github.io/blog/index.html</loc>
-    <lastmod>2023-06-07T08:06:03.746Z</lastmod>
+    <lastmod>2023-06-07T08:14:35.311Z</lastmod>
   </url>
   <url>
     <loc>https://ghosh-r.github.io/blog/about.html</loc>
-    <lastmod>2023-06-07T08:06:03.938Z</lastmod>
+    <lastmod>2023-06-07T08:14:35.487Z</lastmod>
   </url>
 </urlset>
