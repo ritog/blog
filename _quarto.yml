@@ -16,6 +16,7 @@ website:
 format:
   html:
     theme: solar
+    monofont: "Cascadia Code PL"
     css: styles.css
 
 execute:
