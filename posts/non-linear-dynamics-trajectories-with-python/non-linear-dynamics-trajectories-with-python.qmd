@@ -5,8 +5,10 @@ format:
         code-fold: true
 jupyter: python3
 author: "Ritobrata Ghosh"
-date: "4/27/2023"
+date: "2023-04-27"
+categories: [deep-learning, physics, chaos-theory, ai]
 ___
+
 # Non-Linear Dynamics Trajectories with Python
 
 by Ritobrata Ghosh
