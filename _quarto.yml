@@ -10,6 +10,8 @@ website:
         href: https://github.com/ghosh-r
       - icon: twitter
         href: https://twitter.com/AllesistKode
+      - icon: rss
+        href: index.xml
 format:
   html:
     theme: quartz
