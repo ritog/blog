@@ -6,7 +6,7 @@ gh-repo: ghosh-r/ghosh-r.github.io
 gh-badge: [star, follow]
 tags: [deep-learning, machine-learning, data-science, ai, tutorial, nlp, kaggle]
 comments: false
-cover-img: 2021-06-20-intro-huggingface-api-0.jpg
+cover-img: /assets/img/2021-06-20-intro-huggingface-api-0.jpg
 ---
 
 ### Introduction
