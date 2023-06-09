@@ -805,7 +805,7 @@ font-style: inherit;">"Helsinki-NLP/opus-mt-bn-en"</span>)</span></code></pre></
 </figure>
 </div>
 <p>To write our custom function in HDL, we would do-</p>
-<pre><code>// Custom.hdl
+<pre class="hdl"><code>// Custom.hdl
 // this is a part of Hashnode blog Convoluted demo
 
 CHIP Custom {
@@ -827,7 +827,7 @@ CHIP Custom {
 }</code></pre>
 <p>And as this is a custom chip, the <code>.tst</code> test file, and <code>.cmp</code> compare file are not supplied. So, for testing this chip, I wrote my own.</p>
 <p>Here is the test (<code>.tst</code>) file-</p>
-<pre><code>// Custom.tst
+<pre class="hdl"><code>// Custom.tst
 // test file for testing custom chip
 // could be found at- https://gist.github.com/ghosh-r/c4e6f5ceb1e7ea2e3ba3601c9de121be
 
@@ -886,7 +886,7 @@ set c 1,
 eval,
 output;</code></pre>
 <p>And here is the compare (<code>.cmp</code>) file. It contains the truth table that we expect.</p>
-<pre><code>// Custom.cmp
+<pre class="hdl"><code>// Custom.cmp
 // compare file for chip Custom.hdl
 // found at- https://gist.github.com/ghosh-r/c4e6f5ceb1e7ea2e3ba3601c9de121be
 // test file at- https://gist.github.com/ghosh-r/cef52b9f6ac017e00d64460b025a53fe
@@ -947,7 +947,7 @@ output;</code></pre>
 <p>This will be your Boolean expression-</p>
 <p><img src="https://latex.codecogs.com/png.latex?%20y%20=%20%5Coverline%7Ba%7Db%20+%20a%5Coverline%7Bb%7D%20"></p>
 <p>And this will be your HDL implementation.</p>
-<pre><code>// Xor.hdl
+<pre class="hdl"><code>// Xor.hdl
 
 CHIP Xor {
     IN a, b;
